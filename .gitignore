@@ -1,4 +1,4 @@
 # ignore all logs
 *.log
 
-**/vars/main.yml
+**/vars/main.yaml
