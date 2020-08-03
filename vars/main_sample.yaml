@@ -1,0 +1,3 @@
+mqtt_hostname: YOUR_MQTT_SERVER
+mqtt_username: YOUR_MQTT_SERVER_username
+mqtt_password: YOUR_MQTT_SERVER_password
