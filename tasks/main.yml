@@ -11,16 +11,19 @@
     state: latest
     update_cache: yes
   
-- git:
+- name: Clone "rpireporter" git
+  git:
     repo: https://github.com/ironsheep/RPi-Reporter-MQTT2HA-Daemon.git
     dest: /opt/RPi-Reporter-MQTT2HA-Daemon
     clone: yes
     force: yes
 
-- pip:
+- name: Install "rpireporter" requirements
+  pip:
     requirements: /opt/RPi-Reporter-MQTT2HA-Daemon/requirements.txt
 
-- template:
+- name: Copy "rpireporter" config file
+  template:
     src: config.ini.j2
     dest: /opt/RPi-Reporter-MQTT2HA-Daemon/config.ini
 
@@ -36,10 +39,11 @@
     src: /opt/RPi-Reporter-MQTT2HA-Daemon/isp-rpi-reporter.service
     dest: /etc/systemd/system/isp-rpi-reporter.service
     state: link
+  notify: Start isp-rpi-reporter.service service
 
-- name: Start isp-rpi-reporter.service service
-  systemd:
-    name: isp-rpi-reporter.service
-    state: restarted
-    enabled: yes
-    daemon-reload: yes
+#- name: Start isp-rpi-reporter.service service
+#  systemd:
+#    name: isp-rpi-reporter.service
+#    state: restarted
+#    enabled: yes
+#    daemon-reload: yes

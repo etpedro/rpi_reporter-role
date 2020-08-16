@@ -1,2 +1,7 @@
 ---
-# handlers file for rpireporter
+  - name: Start isp-rpi-reporter.service service
+    systemd:
+      name: isp-rpi-reporter.service
+      state: restarted
+      enabled: yes
+      daemon-reload: yes
