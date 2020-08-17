@@ -27,8 +27,7 @@
     src: config.ini.j2
     dest: /opt/RPi-Reporter-MQTT2HA-Daemon/config.ini
 
-#Configure Rpi Reporter to run as a Daemon
-- name: Add user "daemon" to "video" grups
+- name: Add user "daemon" to "video" groups
   user:
     name: daemon
     groups: video
@@ -39,7 +38,8 @@
     src: /opt/RPi-Reporter-MQTT2HA-Daemon/isp-rpi-reporter.service
     dest: /etc/systemd/system/isp-rpi-reporter.service
     state: link
-  notify: Start isp-rpi-reporter.service service
+  tags: symlink
+  notify: restart isp-rpi-reporter
 
 #- name: Start isp-rpi-reporter.service service
 #  systemd:

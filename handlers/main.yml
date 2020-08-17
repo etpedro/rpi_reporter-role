@@ -1,5 +1,5 @@
 ---
-  - name: Start isp-rpi-reporter.service service
+  - name: restart isp-rpi-reporter
     systemd:
       name: isp-rpi-reporter.service
       state: restarted
