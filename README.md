@@ -10,7 +10,7 @@ Requirements
 
 For updated script requirements please read the developer GitHub.
 
-Annsible details
+Ansible details
 ----------------
 
 **APT package** 
